@@ -4,6 +4,11 @@ RewriteEngine on
 
 RewriteCond %{REQUEST_URI} !^/(web)
 
+## robots
+RewriteCond %{REQUEST_URI} ^(.*)
+RewriteRule !^/web //web%{REQUEST_URI} [L]
+###
+
 RewriteRule ^assets/(.*)$ /web/assets/$1 [L]
 RewriteRule ^css/(.*)$ web/css/$1 [L]
 RewriteRule ^fonts/(.*)$ web/fonts/$1 [L]

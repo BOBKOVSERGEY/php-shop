@@ -6,6 +6,7 @@ namespace app\controllers;
 
 use app\models\Good;
 use yii\web\Controller;
+use Yii;
 
 class CategoryController extends Controller
 {
@@ -26,4 +27,15 @@ class CategoryController extends Controller
 
         return $this->render('view', compact('goods'));
     }
+
+    public function actionSearch()
+    {
+        $query = Yii::$app->request->get('search');
+        $goods = new Good();
+        $goods = $goods->getSearchResult($query);
+
+        return $this->render('search', compact('goods', 'query'));
+    }
+
+
 }

@@ -9,6 +9,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -31,8 +32,11 @@ AppAsset::register($this);
       <div class="header">
         <a href="/">На главную</a>
         <a href="#">Вход в админку</a>
-        <a href="#">Корзина</a>
-        <input type="text" style="padding: 5px" placeholder="Поиск..." name="search">
+        <a href="#" class="cart">Корзина</a>
+        <form action="<?php echo Url::to(['category/search']); ?>" method="get">
+          <input type="text" style="padding: 5px" placeholder="Поиск..." name="search">
+        </form>
+
       </div>
     </div>
   </header>
@@ -47,6 +51,13 @@ AppAsset::register($this);
     </div>
   </footer>
 </section>
+<div id="cart" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
+</div>
 <?php $this->endBody() ?>
 </body>
 </html>

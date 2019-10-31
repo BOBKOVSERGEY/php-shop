@@ -35,4 +35,17 @@ class Good extends ActiveRecord
         $catGoods = Good::find()->where(['category' => $id])->asArray()->all();
         return $catGoods;
     }
+
+    public function getSearchResult($query)
+    {
+        $searchResult = Good::find()->where(['like', 'name', $query])->asArray()->all();
+        return $searchResult;
+    }
+
+    public function getOneGood($name)
+    {
+        return Good::find()->where(['link_name' => $name])->asArray()->one();
+    }
+
+
 }

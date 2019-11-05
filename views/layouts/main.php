@@ -54,7 +54,19 @@ AppAsset::register($this);
 <div id="cart" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
-      ...
+      <div class="modal-header">
+        <h5 class="modal-title">Корзина</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger">Очистить корзину</button>
+        <button type="button" class="btn btn-primary btn-close"  data-dismiss="modal">Продолжить покупки</button>
+        <button type="button" class="btn btn-success btn-next">Оформить заказ</button>
+      </div>
     </div>
   </div>
 </div>

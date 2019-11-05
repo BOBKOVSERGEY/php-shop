@@ -1,12 +1,36 @@
 $(function () {
+
   $('.cart').on('click', function (e) {
     e.preventDefault();
-    $('#cart').modal('show');
+    $.ajax({
+      url: '/cart/open',
+      type: 'GET',
+      success: function (res) {
+        $('#cart .modal-body').html(res);
+        $('#cart').modal('show');
+      },
+      error: function () {
+        console.log('error');
+      }
+    })
   });
+
 
   $('.product-button__add').on('click', function (e) {
     e.preventDefault();
     let name = $(this).data('name');
-    console.log(name);
+
+    $.ajax({
+      url: '/cart/add',
+      data: {name:name},
+      type: 'GET',
+      success: function (res) {
+        $('#cart .modal-body').html(res);
+        //$('#cart').modal('show');
+      },
+      error: function () {
+        console.log('error');
+      }
+    })
   })
 });

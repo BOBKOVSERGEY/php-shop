@@ -12,7 +12,7 @@
                 <div class="product-descr">Описание: <?php echo $good['descr']; ?></div>
                 <div class="product-price">Цена: <?php echo $good['price']; ?> рублей</div>
                 <div class="product-buttons">
-                    <button type="button" class="product-button__add btn btn-success">Заказать</button>
+                    <button type="button" data-name="<?php echo $good['link_name']; ?>" class="product-button__add btn btn-success">Заказать</button>
                 </div>
             </div>
         </div>

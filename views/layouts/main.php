@@ -32,7 +32,7 @@ AppAsset::register($this);
       <div class="header">
         <a href="/">На главную</a>
         <a href="#">Вход в админку</a>
-        <a href="#" class="cart">Корзина</a>
+        <a href="#" class="cart">Корзина (<span class="menu-quantity"><?php echo $_SESSION['cart.totalQuantity'] ? $_SESSION['cart.totalQuantity'] : 0; ?></span>)</a>
         <form action="<?php echo Url::to(['category/search']); ?>" method="get">
           <input type="text" style="padding: 5px" placeholder="Поиск..." name="search">
         </form>
@@ -63,7 +63,26 @@ AppAsset::register($this);
       <div class="modal-body">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger">Очистить корзину</button>
+        <button type="button" class="btn btn-danger" id="clearCart">Очистить корзину</button>
+        <button type="button" class="btn btn-primary btn-close"  data-dismiss="modal">Продолжить покупки</button>
+        <button type="button" class="btn btn-success btn-next">Оформить заказ</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="order" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Оформление заказа</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="clearCart">Очистить корзину</button>
         <button type="button" class="btn btn-primary btn-close"  data-dismiss="modal">Продолжить покупки</button>
         <button type="button" class="btn btn-success btn-next">Оформить заказ</button>
       </div>

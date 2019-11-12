@@ -18,7 +18,7 @@
         <td style="vertical-align: middle"><?php echo $good['name']; ?></td>
         <td style="vertical-align: middle"><?php echo $good['goodQuantity']; ?></td>
         <td style="vertical-align: middle"><?php echo $good['price'] *$good['goodQuantity']; ?> рублей</td>
-        <td class="delete" style="text-align: center; cursor: pointer; vertical-align: middle; color: red">
+        <td class="delete"  data-id="<?php echo $id; ?>" style="text-align: center; cursor: pointer; vertical-align: middle; color: red">
           <span>✖</span></td>
       </tr>
     <?php } ?>

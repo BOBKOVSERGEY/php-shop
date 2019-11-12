@@ -26,11 +26,55 @@ $(function () {
       type: 'GET',
       success: function (res) {
         $('#cart .modal-body').html(res);
-        //$('#cart').modal('show');
+        $('.menu-quantity').html($('.total-quantity').html());
       },
       error: function () {
         console.log('error');
       }
     })
+  });
+  
+  $('#clearCart').on('click', function (e) {
+    e.preventDefault();
+    if (confirm('Точно очистить корзину')) {
+      $.ajax({
+        url: '/cart/clear',
+        type: 'GET',
+        success: function (res) {
+          $('#cart .modal-body').html(res);
+          $('.menu-quantity').html($('.total-quantity').html());
+        },
+        error: function () {
+          console.log('error');
+        }
+      })
+    }
+  });
+
+  $('.modal-content').on('click', '.delete', function () {
+
+    let id = $(this).data('id');
+    $.ajax({
+      url: '/cart/delete',
+      data: {id:id},
+      type: 'GET',
+      success: function (res) {
+        $('#cart .modal-body').html(res);
+        if ($('.total-quantity').html()) {
+          $('.menu-quantity').html($('.total-quantity').html());
+        } else {
+          $('.menu-quantity').html(0);
+        }
+
+      },
+      error: function () {
+        console.log('error');
+      }
+    })
+  })
+
+  $('.btn-next').on('click', function () {
+    $('#cart').modal('hide');
+    $('#order').modal('show');
   })
 });

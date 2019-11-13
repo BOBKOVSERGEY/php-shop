@@ -74,7 +74,17 @@ $(function () {
   })
 
   $('.btn-next').on('click', function () {
-    $('#cart').modal('hide');
-    $('#order').modal('show');
+    $.ajax({
+      url: '/cart/order',
+      type: 'GET',
+      success: function (res) {
+        $('#order .modal-body').html(res);
+        $('#cart').modal('hide');
+        $('#order').modal('show');
+      },
+      error: function () {
+        console.log('Error');
+      }
+    });
   })
 });

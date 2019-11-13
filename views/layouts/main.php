@@ -81,11 +81,7 @@ AppAsset::register($this);
       </div>
       <div class="modal-body">
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" id="clearCart">Очистить корзину</button>
-        <button type="button" class="btn btn-primary btn-close"  data-dismiss="modal">Продолжить покупки</button>
-        <button type="button" class="btn btn-success btn-next">Оформить заказ</button>
-      </div>
+
     </div>
   </div>
 </div>

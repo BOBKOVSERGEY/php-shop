@@ -14,6 +14,12 @@ class Order extends \yii\db\ActiveRecord
         return 'order';
     }
 
+    // связываем 2 таблички
+    public function getOrderGoods()
+    {
+        return $this->hasMany(OrderGood::class, ['order_id' => 'id']);
+    }
+
     /**
      * {@inheritdoc}
      */

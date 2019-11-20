@@ -42,7 +42,11 @@ $(function () {
         type: 'GET',
         success: function (res) {
           $('#cart .modal-body').html(res);
-          $('.menu-quantity').html($('.total-quantity').html());
+          if ($('.total-quantity').html()) {
+            $('.menu-quantity').html($('.total-quantity').html());
+          } else {
+            $('.menu-quantity').html(0);
+          }
         },
         error: function () {
           console.log('error');
@@ -87,4 +91,16 @@ $(function () {
       }
     });
   })
+
+  let split = window.location.href.split('/');
+  let  id = split[split.length-1];
+  let nav = document.querySelectorAll('.nav-link');
+  nav.forEach((item) => {
+    if (item.getAttribute('data-id') === id) {
+      item.classList.add('active');
+    }  else {
+      item.classList.remove('active');
+    }
+  })
+
 });

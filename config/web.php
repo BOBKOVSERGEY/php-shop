@@ -39,7 +39,7 @@ $config = [
                         'class' => 'Swift_SmtpTransport',
                         'host' => 'smtp.gmail.com',
                         'username' => 'esdipochta@gmail.com',
-                        'password' => '*',
+                        'password' => '*****',
                         'port' => '465',
                         'encryption' => 'ssl',
                 ],

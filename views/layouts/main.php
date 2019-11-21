@@ -31,7 +31,11 @@ AppAsset::register($this);
     <div class="container">
       <div class="header">
         <a href="/">На главную</a>
-        <a href="#">Вход в админку</a>
+        <?php if (Yii::$app->user->isGuest) { ?>
+          <a href="/admin/login">Login</a>
+        <?php } else { ?>
+          <a href="/admin/logout">Logout</a>
+        <?php } ?>
         <a href="#" class="cart">Корзина (<span class="menu-quantity"><?php echo $_SESSION['cart.totalQuantity'] ? $_SESSION['cart.totalQuantity'] : 0; ?></span>)</a>
         <form action="<?php echo Url::to(['category/search']); ?>" method="get">
           <input type="text" style="padding: 5px" placeholder="Поиск..." name="search">
